@@ -1,0 +1,32 @@
+Options +FollowSymLinks
+RewriteEngine On
+ 
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+ 
+RewriteRule ^app_register app_register.php
+RewriteRule ^settings settings.php
+RewriteRule ^view_register view_register.php
+RewriteRule ^trash_register trash_register.php
+RewriteRule ^profile profile.php
+RewriteRule ^login index.php
+RewriteRule ^logout logout.php
+
+RewriteRule ^add_product add_product.php
+RewriteRule ^view_product view_product.php
+
+RewriteRule ^add_service add_service.php
+RewriteRule ^view_service view_service.php
+
+RewriteRule ^add_newsletter add_newsletter.php
+RewriteRule ^view_newsletter view_newsletter.php
+
+RewriteRule ^add_message add_message.php
+
+RewriteRule ^threads/(\d+)*$ ./tview_product?alert=deletehread.php?id=$1
+ 
+RewriteRule ^search/(.*)$ ./search.php?query=$1
+
+<IfModule mod_php5.c>
+  php_value output_buffering Off
+</IfModule>
